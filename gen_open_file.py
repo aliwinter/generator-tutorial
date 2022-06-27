@@ -10,8 +10,10 @@ def csv_reader_not_generator(file_name):
 
 def csv_reader_generator(file_name):
     # open(file_name, "r") -> returns a generator
-    for row in open(file_name, "r"):
+    f = open(file_name, "r")
+    for row in f:
         yield row  # returns a generator object
+    f.close()
 
 
 print("Using generator...")
