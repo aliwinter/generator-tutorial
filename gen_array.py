@@ -1,5 +1,4 @@
 import time
-from venv import create
 
 
 def csv_reader_not_generator(file_name):
