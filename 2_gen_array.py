@@ -11,26 +11,36 @@ def csv_reader_not_generator(file_name):
 def create_new_array_no_generator(arr):
     new_arr = []
     for row in arr:
-        new_arr = row + "NEW LINE"
+        row += "step_1"
+        row += "step_2"
+        row += "step_3"
+        new_arr.append(row + "NEW LINE")
     return new_arr
 
 
 def create_new_array_generator(arr):
     for row in arr:
-        yield row + "NEW LINE"
+        row += "step_1"
+        row += "step_2"
+        row += "step_3"
+        yield (row + "NEW LINE")
 
 
 # We want to iterate  this large list of rows in our file
 arr = csv_reader_not_generator("big_file.txt")
 
-# GOAL: Create a new array with with the values from previous array
+# GOAL: Create a new array with with the values from previous array updated
+
+print("\nNot using generator...")
+start_time = time.time()
+new_arr = create_new_array_no_generator(arr)
+print("TOTAL_TIME:", time.time() - start_time)
 
 print("Using generator...")
 start_time = time.time()
 new_arr = create_new_array_generator(arr)
 print("TOTAL_TIME:", time.time() - start_time)
 
-print("\nNot using generator...")
 start_time = time.time()
-new_arr = create_new_array_no_generator(arr)
-print("TOTAL_TIME:", time.time() - start_time)
+new_arr = list(new_arr)
+print("TOTAL_TIME AFTER ACCESSING :", time.time() - start_time)

@@ -21,7 +21,7 @@ def cube_list_with_gen(arr: Iterable):
     return (x * x * x for x in arr)
 
 
-arr = range(10000)
+arr = range(100000)
 
 start = time.time()
 temp_arr = square_list_no_gen(arr)
@@ -40,5 +40,6 @@ print(f"Total time with generator: {time.time()-start}")
 # when we access the array at the end then it actually performs
 # all the computation
 start = time.time()
-arr = list(new_arr)
-print(f"Total time after generator accessed: {time.time()-start}")
+new_arr = list(new_arr)
+print(f"Memory Foot Print with generators: {sys.getsizeof(new_arr)}")
+print(f"Total time after evaluating generator: {time.time()-start}")
