@@ -51,7 +51,7 @@ X_version_1 = list(cube_list_with_gen(X_copy_1)) # evaluate the generator object
 X_version_2 = list(divide_list_with_gen(X_copy_2)) # evaluate the generator object
 
 print("X_version_1 memory:", sys.getsizeof(X_version_1))
-print("X_version_1 memory:", sys.getsizeof(X_version_2))
+print("X_version_2 memory:", sys.getsizeof(X_version_2))
 
 
 # print(list(dummy)[1:3])
